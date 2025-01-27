@@ -1,0 +1,52 @@
+services:
+  caddy:
+    build:
+      context: ./caddy
+      dockerfile: Dockerfile
+    container_name: caddy
+    read_only: true
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - "./caddy/Caddyfile:/etc/caddy/Caddyfile"
+    networks:
+      - app_network
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "0.5"
+          pids: 150 
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: flask_app
+    read_only: true
+    networks:
+      - app_network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "0.5"
+          pids: 150
+            
+  redis:
+    build:
+      context: ./redis
+      dockerfile: Dockerfile
+    container_name: redis
+    read_only: true
+    networks:
+      - app_network
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "0.5"
+          pids: 100
+
+networks:
+  app_network: {}
