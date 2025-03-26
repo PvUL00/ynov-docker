@@ -4,7 +4,7 @@
 ]>
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:template match="./resources/scores">
+<xsl:template match="*">
   <html><body>
     <pre>OK STATIC PAYLOAD</pre>
   </body></html>
